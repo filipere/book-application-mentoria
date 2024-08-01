@@ -1,0 +1,128 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://;serverName=localhost;port=1433;databaseName=master
+    username: SA
+    password: p@ssw0rd
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+    show-sql: false
+
+#debug: ${DEBUG:true}
+#mode: "template"
+#name: "@project.name@"
+#dir: "@project.basedir@"
+#version: "@project.version@"
+#charset: "${MS_DEFAULT_CHARSET:UTF-8}"
+#
+#server:
+#  port: "${MS_PORT:3000}"
+#  shutdown: graceful
+#  servlet:
+#    encoding:
+#      charset: "UTF-8"
+#    context-path: ""
+#  error:
+#    include-stacktrace: "never"
+#
+#spring:
+#  main:
+#    banner-mode: OFF
+#  application:
+#    name: "${name}"
+#  lifecycle:
+#    timeout-per-shutdown-phase: "5s"
+#  security:
+#    user:
+#      name: "${MS_USERNAME:admin}"
+#      password: "${MS_PASSWORD:admin}"
+#  gson:
+#    pretty-printing: "true"
+#    serialize-nulls: "true"
+#    exclude-fields-without-expose-annotation: "true"
+#  mvc:
+#    static-path-pattern: "/static/**"
+#    converters:
+#      preferred-json-mapper: jackson
+#  jpa:
+#    generate-ddl: false
+#    show-sql: "${debug}"
+##    defer-datasource-initialization: true
+#    open-in-view: "${debug}"
+#  datasource:
+##    url: jdbc:sqlserver://:${MSSQL_PORT};database=${MSSQL_DATABASE};${custom.database.mssql.query}
+#    url: jdbc:sqlserver://localhost:1433;databaseName=tempdb
+#    username: sa
+#    password: p@ssw0rd
+#  flyway:
+#    enabled: true
+#
+#logging:
+#  charset:
+#    console: "${charset}"
+#    file: "${charset}"
+#  #  file:
+#  #    name: "${logging.file.path}/${mode}/${starterTime}.log"
+#  #    path: "${MS_LOGS:${dir}/tmp/logs/${name}/${version}}"
+#  logback:
+#    rollingpolicy:
+#      clean-history-on-start: "${debug}"
+#      max-file-size: "${LOG_FILE_MAX_MB:20MB}"
+#  level:
+#    web: "${MS_LOG_LEVEL:debug}"
+#
+#springdoc:
+#  swagger-ui:
+#    url: "/static/swagger/v1.yaml"
+#    path: "/docs/swagger"
+#  api-docs:
+#    enabled: false
+#
+#custom:
+#  http:
+#    connection:
+#      request:
+#        timeout: "10000"
+#      response:
+#        timeout: "10000"
+#  queue:
+#    size: "${MS_QUEUE_SIZE:1000}"
+#    idle-time: "${MS_IDLE_BEFORE_REMOVE:5000}"
+#    thread:
+#      min: "${MS_QUEUE_MIN_THREADS:10}"
+#      max: "${MS_QUEUE_MAX_THREADS:100}"
+#    contrato:
+#      batch-size: "${MS_QUEUE_CONTRATO_BATCH_SIZE:1000}"
+#  cors:
+#    methods: "POST,GET,PUT,OPTIONS,HEAD"
+#    origins: "*"
+#    credentials: true
+#  database:
+#    h2:
+#      ssl: false
+#      name: "bookdb"
+#      username: "sa"
+#      password: "p@ssw0rd"
+#      host: "mem"
+#      port: ""
+#      url: "jdbc:h2:${custom.database.h2.host}:${custom.database.h2.name};${custom.database.h2.query}"
+#      query: ""
+#      driverClassName: "org.h2.Driver"
+#      dialect: "org.hibernate.dialect.h2"
+#    mssql:
+#      ssl: "${MSSQL_USE_SSL}"
+#      name: "${MSSQL_DATABASE}"
+#      username: "${MSSQL_USERNAME}"
+#      password: "${MSSQL_PASSWORD}"
+#      host: "${MSSQL_HOST}"
+#      port: "${MSSQL_PORT}"
+#      url: "jdbc:sqlserver://${MSSQL_HOST}:${MSSQL_PORT};database=${MSSQL_DATABASE};${custom.database.mssql.query}"
+#      query: "trustServerCertificate=true;encrypt=true;"
+#      driverClassName: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+#      dialect: "org.hibernate.dialect.SQLServerDialect"

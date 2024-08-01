@@ -1,0 +1,65 @@
+#version: '3.4'
+#services:
+#  mssql:
+#    container_name: mssql-db
+#    hostname: mssql-db
+#    image: mcr.microsoft.com/mssql/server:2022-latest
+#    environment:
+#      ACCEPT_EULA: 'Y'
+##      MSSQL_SA_USUARIO: 'sa'
+#      MSSQL_SA_PASSWORD: 'Admin@123'
+#      MSSQL_DATA_DIR: /var/opt/mssql/data
+#      MSSQL_PID: 'Developer'
+#      MSSQL_TCP_PORT: 1433
+#    ports:
+#      - "1433:1433"
+#    volumes:
+#      - ./data:/var/opt/mssql/data
+#      - ./log:/var/opt/mssql/log
+#      - ./secrets:/var/opt/mssql/secrets
+
+version: '3.9'
+
+services:
+  mssql:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    restart: always
+    hostname: "mssql-srv"
+    environment:
+      # USUARIO = "sa"
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'p@ssw0rd'
+      MSSQL_PID: 'Developer'
+      MSSQL_SA_PASSWORD: 'p@ssw0rd'
+      TZ: 'America/Sao_Paulo'
+    ports:
+      - "1433:1433"
+    expose:
+      - "1433"
+    volumes:
+      - "mssql:/var/opt/mssql"
+    networks:
+      app:
+
+  adminer:
+    image: "adminer:latest"
+    restart: "always"
+    hostname: "adminer-srv"
+    environment:
+      ADMINER_DEFAULT_SERVER: mssql-srv
+    ports:
+      - "11111:8080"
+    expose:
+      - "11111"
+    networks:
+      app:
+
+volumes:
+  mssql:
+    name: "mssql-server"
+  mockoon:
+    name: "mockoon"
+
+networks:
+  app:
+    name: 'book-network'
